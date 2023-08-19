@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		436C67B82A911103002794E5 /* SwiftReadability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436C67B72A911103002794E5 /* SwiftReadability.framework */; };
+		436C67B92A911103002794E5 /* SwiftReadability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 436C67B72A911103002794E5 /* SwiftReadability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		891538C51D248BCB00BAB813 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891538C41D248BCB00BAB813 /* AppDelegate.swift */; };
 		891538C71D248BCB00BAB813 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891538C61D248BCB00BAB813 /* ViewController.swift */; };
 		891538CA1D248BCB00BAB813 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891538C81D248BCB00BAB813 /* Main.storyboard */; };
 		891538CC1D248BCB00BAB813 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 891538CB1D248BCB00BAB813 /* Assets.xcassets */; };
 		891538CF1D248BCB00BAB813 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 891538CD1D248BCB00BAB813 /* LaunchScreen.storyboard */; };
-		891538F61D29DD1B00BAB813 /* SwiftReadability.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891538F51D29DD1B00BAB813 /* SwiftReadability.framework */; };
-		891538F71D29DD1B00BAB813 /* SwiftReadability.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 891538F51D29DD1B00BAB813 /* SwiftReadability.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,7 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				891538F71D29DD1B00BAB813 /* SwiftReadability.framework in Embed Frameworks */,
+				436C67B92A911103002794E5 /* SwiftReadability.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -31,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		436C67B72A911103002794E5 /* SwiftReadability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftReadability.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		891538C11D248BCB00BAB813 /* SwiftReadabilityExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftReadabilityExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		891538C41D248BCB00BAB813 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		891538C61D248BCB00BAB813 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,7 +40,6 @@
 		891538CE1D248BCB00BAB813 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		891538D01D248BCB00BAB813 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		891538ED1D248C6B00BAB813 /* SwiftReadability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftReadability.framework; path = "../../../../Library/Developer/Xcode/DerivedData/SwiftReadability-fktgjfhnivvydvgvpkdgaewyjctd/Build/Products/Debug-iphonesimulator/SwiftReadability.framework"; sourceTree = "<group>"; };
-		891538F51D29DD1B00BAB813 /* SwiftReadability.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = SwiftReadability.framework; path = "/Users/Chloe/Library/Developer/Xcode/DerivedData/SwiftReadability-fktgjfhnivvydvgvpkdgaewyjctd/Build/Products/Debug-iphoneos/SwiftReadability.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				891538F61D29DD1B00BAB813 /* SwiftReadability.framework in Frameworks */,
+				436C67B82A911103002794E5 /* SwiftReadability.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +57,6 @@
 		891538B81D248BCB00BAB813 = {
 			isa = PBXGroup;
 			children = (
-				891538F51D29DD1B00BAB813 /* SwiftReadability.framework */,
 				891538C31D248BCB00BAB813 /* SwiftReadabilityExample */,
 				891538C21D248BCB00BAB813 /* Products */,
 				891538EC1D248C6B00BAB813 /* Frameworks */,
@@ -88,6 +87,7 @@
 		891538EC1D248C6B00BAB813 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				436C67B72A911103002794E5 /* SwiftReadability.framework */,
 				891538ED1D248C6B00BAB813 /* SwiftReadability.framework */,
 			);
 			name = Frameworks;
@@ -137,6 +137,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -235,12 +236,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -278,10 +280,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -291,10 +294,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftReadabilityExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chloehorgan.SwiftReadabilityExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -303,10 +307,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftReadabilityExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chloehorgan.SwiftReadabilityExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
