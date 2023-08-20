@@ -10,6 +10,21 @@ import Foundation
 import WebKit
 
 public class Readability: NSObject, WKNavigationDelegate {
+    private enum ReadabilityError: Error {
+        case dataConversionError
+
+        var localizedDescription: String {
+            switch self {
+                case .dataConversionError: return "Unable to convert JSON string to Data"
+            }
+        }
+    }
+
+    private class Article: Codable {
+        let title: String
+        let content: String
+    }
+
     private let webView: WKWebView
     private let completionHandler: ((_ content: String?, _ error: Error?) -> Void)
     private var hasRenderedReadabilityHTML = false
@@ -35,7 +50,7 @@ public class Readability: NSObject, WKNavigationDelegate {
         webView.configuration.userContentController.addUserScript(script)
     }
     
-    private func renderHTML(readabilityContent: String) -> String {
+    private func renderHTML(article: Article) -> String {
         do {
             let template = try loadFile(name: "Reader.template", type: "html")
             
@@ -44,8 +59,9 @@ public class Readability: NSObject, WKNavigationDelegate {
             let css = mozillaCSS + swiftReadabilityCSS
             
             let html = template
+                .replacingOccurrences(of: "##TITLE##", with: article.title)
                 .replacingOccurrences(of: "##CSS##", with: css)
-                .replacingOccurrences(of: "##CONTENT##", with: readabilityContent)
+                .replacingOccurrences(of: "##CONTENT##", with: article.content)
             
             return html
             
@@ -54,7 +70,7 @@ public class Readability: NSObject, WKNavigationDelegate {
             fatalError("Failed to render Readability HTML")
         }
     }
-    
+
     private func initializeReadability(completionHandler: @escaping (_ html: String?, _ error: Error?) -> Void) {
         let readabilityInitializationJS: String
         do {
@@ -63,13 +79,27 @@ public class Readability: NSObject, WKNavigationDelegate {
             fatalError("Couldn't load readability_initialization.js")
         }
         
-        webView.evaluateJavaScript(readabilityInitializationJS) { [weak self] (result, error) in
-            guard let result = result as? String else {
+        webView.evaluateJavaScript(readabilityInitializationJS) { [weak self] (resultJSON, error) in
+            guard let resultJSON = resultJSON as? String else {
                 self?.completionHandler(nil, error)
                 return
             }
-            guard let html = self?.renderHTML(readabilityContent: result) else { return }
-            completionHandler(html, nil)
+
+            guard let resultJSONData = resultJSON.data(using: .utf8) else {
+                self?.completionHandler(nil, ReadabilityError.dataConversionError)
+                return
+            }
+
+            do {
+                let article = try JSONDecoder().decode(Article.self, from: resultJSONData)
+
+                guard let html = self?.renderHTML(article: article) else { return }
+                completionHandler(html, nil)
+            }
+            catch {
+                self?.completionHandler(nil, error)
+                return
+            }
         }
     }
     
