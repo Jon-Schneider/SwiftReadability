@@ -386,6 +386,13 @@ body {
   margin-bottom: 0px !important;
 }
 
+img {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 10px;
+}
+
 /* Image caption text */
 .content .caption,
 .content .wp-caption-text,
